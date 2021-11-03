@@ -139,29 +139,33 @@ function calculateTotal() {
 }
 
 // Exercise 5 
-//NO LE DES BOLA A ESTO QUE VOY PROBANDO COSAS Y ESTÁ AHÍ OLVIDADO
+
 function generateCart() {
     cart = [];
     for (i = 0; i < cartList.length; i++) {
-        if (cartList[i].id == cart[i].id) {
-            cart[j].quantity += 1 
-            cart[j].subtotal = cart[j].quantity * cart[j].price
-        }
-        else {
-            cart.push(cartList[i])
-        }
+        let found = cart.find(element => element.id == cartList[i].id)
+            element.quantity = 1
+            if (found == null) {
+                cart.push(cartList[i])
+                cartList[i].quantity = 1
+            }
+             else {
+                found.quantity += 1;
+            }
+       
+
+
     }
     console.log(cart);
     console.log(cartList);
-
-    // agregar el valor de "cantidad"
-    // contar cuantos items hay de type grosery
     // Using the "cartlist" array that contains all the items in the shopping cart, 
     // generate the "cart" array that does not contain repeated items, instead each item of this array "cart" shows the quantity of product.
 }
 
 // Exercise 6
 function applyPromotionsCart() {
+
+
     // Apply promotions to each item in the array "cart"
 }
 
