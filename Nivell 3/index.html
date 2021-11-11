@@ -95,20 +95,24 @@
 								<div class="modal-body">
 									<!-- listing items starts -->
 									<div>
-										<table class="table table-striped table-bordered table-hover">
-											<thead class="thead-dark">
+										<table class="table table-responsive table-striped table-bordered table-hover">
+											<thead>
 												<tr>
 													<th scope="col">Item</th>
 													<th scope="col">Subtotal</th>
 													<th scope="col">Quantity</th>
 												</tr>
 												</thead>
+												
 											<tbody  id="showCart">
 											</tbody>
 										</table>
 										<!-- listing items ends -->
 										<div class="text-center"> 
 										<a href="checkout.html" class="btn btn-primary m-3">Checkout</a>
+										</div>
+										<div class="text-right"> 
+											<a onclick="cleanCart(), cleanScreen()" class="btn btn-warning m-3">Clean cart</a>
 										</div>
 									</div>
 								</div>
@@ -121,7 +125,7 @@
 					  		</div>
 						</div>
 				  	</div>
-
+					 
 					<!-- / Cart -->
 
 					<!-- Search -->
@@ -298,9 +302,6 @@
 						<div class="preview-meta">
 							<ul>
 								<li>
-			                        <a href="#!"><i class="tf-ion-ios-heart"></i></a>
-								</li>
-								<li>
 									<a href="#!" onclick="addToCart(1)"><i class="tf-ion-android-cart"></i></a>
 								</li>
 							</ul>
@@ -319,9 +320,6 @@
 						<div class="preview-meta">
 							<ul>
 								<li>
-			                        <a href="#" ><i class="tf-ion-ios-heart"></i></a>
-								</li>
-								<li>
 									<a href="#!" onclick="addToCart(2)"><i class="tf-ion-android-cart"></i></a>
 								</li>
 							</ul>
@@ -339,9 +337,6 @@
 						<img class="img-responsive" src="images/mouse.png" alt="product-img" />
 						<div class="preview-meta">
 							<ul>
-								<li>
-			                        <a href="#" ><i class="tf-ion-ios-heart"></i></a>
-								</li>
 								<li>
 									<a href="#!" onclick="addToCart(3)"><i class="tf-ion-android-cart"></i></a>
 								</li>
@@ -366,9 +361,6 @@
 						<div class="preview-meta">
 							<ul>
 								<li>
-			                        <a href="#" ><i class="tf-ion-ios-heart"></i></a>
-								</li>
-								<li>
 									<a href="#!" onclick="addToCart(4)"><i class="tf-ion-android-cart"></i></a>
 								</li>
 							</ul>
@@ -387,9 +379,6 @@
 						<div class="preview-meta">
 							<ul>
 								<li>
-			                        <a href="#" ><i class="tf-ion-ios-heart"></i></a>
-								</li>
-								<li>
 									<a href="#!" onclick="addToCart(5)"><i class="tf-ion-android-cart"></i></a>
 								</li>
 							</ul>
@@ -407,9 +396,6 @@
 						<img class="img-responsive" src="images/mobil3.jpg" alt="product-img" />
 						<div class="preview-meta">
 							<ul>
-								<li>
-			                        <a href="#" ><i class="tf-ion-ios-heart"></i></a>
-								</li>
 								<li>
 									<a href="#!" onclick="addToCart(6)"><i class="tf-ion-android-cart"></i></a>
 								</li>
@@ -430,9 +416,6 @@
 						<div class="preview-meta">
 							<ul>
 								<li>
-			                        <a href="#" ><i class="tf-ion-ios-heart"></i></a>
-								</li>
-								<li>
 									<a href="#!" onclick="addToCart(7)"><i class="tf-ion-android-cart"></i></a>
 								</li>
 							</ul>
@@ -451,9 +434,6 @@
 						<div class="preview-meta">
 							<ul>
 								<li>
-			                        <a href="#" ><i class="tf-ion-ios-heart"></i></a>
-								</li>
-								<li>
 									<a href="#!" onclick="addToCart(8)"><i class="tf-ion-android-cart"></i></a>
 								</li>
 							</ul>
@@ -471,9 +451,6 @@
 						<img class="img-responsive" src="images/screenprot.jpg" alt="product-img" />
 						<div class="preview-meta">
 							<ul>
-								<li>
-			                        <a href="#" ><i class="tf-ion-ios-heart"></i></a>
-								</li>
 								<li>
 									<a href="#!" onclick="addToCart(9)"><i class="tf-ion-android-cart"></i></a>
 								</li>

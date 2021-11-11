@@ -84,6 +84,7 @@ function cleanScreen(){
     document.getElementById('showCart').innerHTML = ''
 }
 
+
 function calculateSubtotals() {
 
     subtotal.pc.value = 0;
