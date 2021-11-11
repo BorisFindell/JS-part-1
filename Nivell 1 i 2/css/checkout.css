@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+body {
+    font-family: Poppins;
+}
+#errorPassword, #errorName, #errorPhone {
+    display: none;
+}
+
+#btn-buy {
+    cursor: pointer;
+}
+
+#nom,
+#email,
+#cognom,
+#pass,
+#adress,
+#tele {
+    width: 50%;
+}
