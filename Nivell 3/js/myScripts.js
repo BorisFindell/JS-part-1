@@ -1,5 +1,3 @@
-// Exercise 10
-// Move this variable to a json file and load the data in this js
 var products = [
     {
         id: 1,
@@ -72,24 +70,9 @@ var subtotal = {
         discount: 0
     },
 };
+
 var total = 0;
 
-// function myCart() {
-// }
-
-// Exercise 1
-// function addToCartList(id) {
-//     for (i = 0; i < products.length; i++) {
-//         if (id == products[i].id) {
-//             cartList.push(products[i])
-//             console.log(cartList);
-//         }
-//     }
-//     // 1. Loop for to the array products to get the item to add to cart
-//     // 2. Add found product to the cartList array
-// }
-
-// Exercise 2
 function cleanCart() {
     cart = []
 }
@@ -101,7 +84,6 @@ function cleanScreen(){
     document.getElementById('showCart').innerHTML = ''
 }
 
-// Exercise 3
 function calculateSubtotals() {
 
     subtotal.pc.value = 0;
@@ -124,48 +106,17 @@ function calculateSubtotals() {
         }
     }
     console.log(subtotal);
-    // 1. Create a for loop on the "cartList" array
-    // 2. Implement inside the loop an if...else or switch...case to add the quantities of each type of product, obtaining the subtotals: subtotalGrocery, subtotalBeauty and subtotalClothes
 }
 
 
-// Exercise 4
 function calculateTotal() {
     total = 0; 
     for (let x in subtotal) {
         total += subtotal[x].value
     }
     console.log(total);
-    // Calculate total price of the cart either using the "cartList" array
 }
 
-// Exercise 5 
-
-// function generateCart() {
-//     cart = [];
-//     for (i = 0; i < cartList.length; i++) {
-//         let found = cart.find(element => element.name == cartList[i].name)
-//             if (found == null) {
-
-//                 let newItem = {}
-//                 newItem.name = cartList[i].name;
-//                 newItem.type = cartList[i].type;
-//                 newItem.price = cartList[i].price;
-//                 newItem.quantity = 1;
-//                 newItem.subtotal = cartList[i].price;
-//                 cart.push(newItem)
-//             }
-//              else {
-//                 found.quantity++;
-//                 found.subtotal = found.price * found.quantity;
-//             }
-//     }
-//     applyPromotionsCart();
-//     // Using the "cartlist" array that contains all the items in the shopping cart, 
-//     // generate the "cart" array that does not contain repeated items, instead each item of this array "cart" shows the quantity of product.
-// }
-
-// Exercise 6
 function applyPromotionsCart() {
     
     // Apply promotions to each item in the array "cart"
@@ -181,7 +132,6 @@ function applyPromotionsCart() {
     }
 }
 
-// Exercise 7
 function addToCart(id) {
     
     for (i = 0; i < products.length; i++) {
@@ -210,14 +160,10 @@ function addToCart(id) {
     calculateSubtotals();
     calculateTotal();
     applyPromotionsCart();
-    // Refactor previous code in order to simplify it 
-    // 1. Loop for to the array products to get the item to add to cart
-    // 2. Add found product to the cart array or update its quantity in case it has been added previously.
 }
 
-// Exercise 8
 function removeFromCart(id) {
-
+    
     for (i = 0; i < cart.length; i++) {
         if (id == cart[i].id && cart[i].quantity > 1){
             cart[i].quantity --
@@ -227,12 +173,12 @@ function removeFromCart(id) {
             cart.pop(cart[i])
         }
     }
+    printCart()
     calculateSubtotals();
     calculateTotal();
     applyPromotionsCart();
 }
 
-// Exercise 9
 function printCart() {
 
     //LIMPIA LA PARTALLA QUE MUESTRA EL CARRITO//
@@ -266,6 +212,18 @@ function printCart() {
         th = document.createElement('th')
         tr.appendChild(th);
         th.innerHTML += item.quantity;
+
+        //CREA BOTONES DE RESTAR
+
+        th = document.createElement('th')
+        tr.appendChild(th);
+        let btn = document.createElement('button')
+        th.appendChild(btn)
+        btn.classList.add('btn', 'btn-danger')
+        btn.addEventListener("click", function(){
+            removeFromCart(item.id)
+        })
+        btn.innerHTML += '-'
     });
 }
 
