@@ -1,55 +1,55 @@
 var products = [
     {
         id: 1,
-        name: 'monitor',
+        name: 'Monitor',
         price: 110.5,
         type: 'pc'
     },
     {
         id: 2,
-        name: 'memoria ram',
+        name: 'Memoria ram',
         price: 60.25,
         type: 'pc'
     },
     {
         id: 3,
-        name: 'mouse',
+        name: 'Mouse',
         price: 9,
         type: 'pc'
     },
     {
         id: 4,
-        name: 'samsung J7',
+        name: 'Samsung J7',
         price: 260,
         type: 'mobil'
     },
     {
         id: 5,
-        name: 'nokia S1',
+        name: 'Nokia S1',
         price: 205,
         type: 'mobil'
     },
     {
         id: 6,
-        name: 'motorola R4',
+        name: 'Motorola R4',
         price: 175,
         type: 'mobil'
     },
     {
         id: 7,
-        name: 'memoria sd',
+        name: 'Memoria SD',
         price: 15,
         type: 'accesorios'
     },
     {
         id: 8,
-        name: 'cartucho toner',
+        name: 'Cartucho de toner',
         price: 19.99,
         type: 'accesorios'
     },
     {
         id: 9,
-        name: 'protector pantalla',
+        name: 'Protector de pantalla',
         price: 9.99,
         type: 'accesorios'
     }
@@ -122,9 +122,9 @@ function applyPromotionsCart() {
     // Apply promotions to each item in the array "cart"
 
     for (i = 0; i < cart.length; i++) {
-        if (cart[i].name == 'memoria sd' && cart[i].quantity >= 3)
+        if (cart[i].name == 'Memoria SD' && cart[i].quantity >= 3)
             cart[i].subtotalWithDiscount = cart[i].quantity * 10; //Promoció monitor
-        else if (cart[i].name == 'mouse' && cart[i].quantity >= 10)
+        else if (cart[i].name == 'Mouse' && cart[i].quantity >= 10)
         cart[i].subtotalWithDiscount = (cart[i].subtotal / 3) * 2; //Promoció mouse
         else {
             delete cart[i].subtotalWithDiscount;
@@ -170,7 +170,7 @@ function removeFromCart(id) {
             cart[i].subtotal = cart[i].price * cart[i].quantity;
         }
         else if (id == cart[i].id && cart[i].quantity == 1) {
-            cart.pop(cart[i])
+            cart.splice(i, 1)
         }
     }
     printCart()
@@ -219,13 +219,19 @@ function printCart() {
         tr.appendChild(th);
         let btn = document.createElement('button')
         th.appendChild(btn)
-        btn.classList.add('btn', 'btn-danger')
+        btn.classList.add('btn', 'btn-danger', 'btn-sm')
+        btn.setAttribute('id', item.id)
+        btn.innerHTML += '-'
         btn.addEventListener("click", function(){
             removeFromCart(item.id)
-        })
-        btn.innerHTML += '-'
+        });
     });
+    
 }
+
+
+
+
 
 //ANIMACIÓN DEL SCROLL A SHOP//
 
