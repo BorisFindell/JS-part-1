@@ -144,38 +144,51 @@
   </section>
 
   <!-- modal -->
-  <aside>
-    <div class="modal fade" id="cartModal" tabindex="-1" role="dialog"
-      aria-labelledby="cartModalTitle" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-scrollable" role="document">
+  <div class="modal fade" id="cartModal" tabindex="-1" role="dialog"
+  aria-labelledby="cartModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
         <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="cartModalScrollableTitle"><i class="fas fa-cart-arrow-down"></i>My Cart</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
+
+        <!-- MODAL HEADER -->
+
+        <div class="modal-header">
+            <h5 class="modal-title text-center h3" id="cartModalScrollableTitle"><i class="fas fa-cart-arrow-down"></i>Cart</h5>
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
             </button>
-          </div>
-          <div class="modal-body">
-            <!-- listing items starts -->
-            <div>
-              <ul class="list">
-              </ul>
-              <div id="showCart" >
-                <h3 class="text-center bill px-5">Select Something</h3>
-              </div>
-              <div class="text-center"> 
-                <a href="checkout.html" class="btn btn-primary m-3">Checkout</a>
-              </div>
-            </div>
+        </div>
+
+        <!-- MODAL BODY -->
+
+        <div class="modal-body">
+          <!-- listing items starts -->
+          <div>
+            <table class="table table-striped table-bordered table-hover">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">Item</th>
+                  <th scope="col">Subtotal</th>
+                  <th scope="col">Quantity</th>
+                </tr>
+                </thead>
+              <tbody  id="showCart">
+              </tbody>
+            </table>
             <!-- listing items ends -->
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <div class="text-center"> 
+            <a href="checkout.html" class="btn btn-primary m-3">Checkout</a>
+            </div>
           </div>
         </div>
-      </div>
+
+        <!-- MODAL FOOTER -->
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+        </div>
     </div>
-  </aside>
+    </div>
 
   <!-- script tags -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

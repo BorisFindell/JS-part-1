@@ -95,6 +95,13 @@ function cleanCart() {
     cart = []
 }
 
+function cleanScreen(){
+
+    //LIMPIA LA PARTALLA QUE MUESTRA EL CARRITO//
+
+    document.getElementById('showCart').innerHTML = ''
+}
+
 // Exercise 3
 function calculateSubtotals() {
 
@@ -211,23 +218,70 @@ function addToCart(id) {
 
 // Exercise 8
 function removeFromCart(id) {
-
+    
     for (i = 0; i < cart.length; i++) {
         if (id == cart[i].id && cart[i].quantity > 1){
             cart[i].quantity --
             cart[i].subtotal = cart[i].price * cart[i].quantity;
         }
         else if (id == cart[i].id && cart[i].quantity == 1) {
-            cart.pop(cart[i])
+            cart.splice(i, 1)
         }
     }
+    printCart()
     calculateSubtotals();
     calculateTotal();
     applyPromotionsCart();
 }
 
-// // Exercise 9
-// function printCart() {
-//     document.getElementById('showCart').innerHTML = 
-//     // Fill the shopping cart modal manipulating the shopping cart dom
-// }
+
+// Exercise 9
+function printCart() {
+
+    //LIMPIA LA PARTALLA QUE MUESTRA EL CARRITO//
+    
+    cleanScreen()
+
+    cart.forEach(function (item) {
+
+        //CREA LAS ROWS
+
+        let tr = document.createElement('tr');
+        document.getElementById('showCart').appendChild(tr);
+
+        //CREA EL NOMBRE
+
+        let th = document.createElement('th')
+        tr.appendChild(th);
+        th.innerHTML += item.name;
+
+        //CREA PRICE
+
+        th = document.createElement('th')
+        tr.appendChild(th);
+            if (item.subtotalWithDiscount == undefined)
+                th.innerHTML += item.subtotal;
+            else
+                th.innerHTML += item.subtotalWithDiscount;
+
+        //CREA QUANTITY
+
+        th = document.createElement('th')
+        tr.appendChild(th);
+        th.innerHTML += item.quantity;
+
+        //CREA BOTONES DE RESTAR
+
+        th = document.createElement('th')
+        tr.appendChild(th);
+        let btn = document.createElement('button')
+        th.appendChild(btn)
+        btn.classList.add('btn', 'btn-danger', 'btn-sm')
+        btn.setAttribute('id', item.id)
+        btn.innerHTML += '-'
+        btn.addEventListener("click", function(){
+            removeFromCart(item.id)
+        });
+    });
+    
+}
