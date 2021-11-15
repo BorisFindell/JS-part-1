@@ -75,6 +75,10 @@ var total = 0;
 
 function cleanCart() {
     cart = []
+    subtotal.pc.value = 0;
+    subtotal.mobil.value = 0;
+    subtotal.accesorios.value = 0;
+    total = 0; 
 }
 
 function cleanScreen(){
@@ -82,6 +86,7 @@ function cleanScreen(){
     //LIMPIA LA PARTALLA QUE MUESTRA EL CARRITO//
 
     document.getElementById('showCart').innerHTML = ''
+    document.getElementById('total').innerHTML = 'Nothing here...'
 }
 
 
@@ -140,14 +145,14 @@ function addToCart(id) {
             let found = cart.find(element => element.id == products[i].id)
             if (found == null) {
 
-                let newItem = {}
-                newItem.id = products[i].id;
-                newItem.name = products[i].name;
-                newItem.type = products[i].type;
-                newItem.price = products[i].price;
-                newItem.quantity = 1;
-                newItem.subtotal = products[i].price;
-                cart.push(newItem);
+                cart.push({
+                    id: products[i].id,
+                    name: products[i].name,
+                    type: products[i].type,
+                    price: products[i].price,
+                    quantity: 1,
+                    subtotal: products[i].price,
+                });
             }
             else {
                 found.quantity++;
@@ -174,10 +179,10 @@ function removeFromCart(id) {
             cart.splice(i, 1)
         }
     }
-    printCart()
     calculateSubtotals();
     calculateTotal();
     applyPromotionsCart();
+    printCart()
 }
 
 function printCart() {
@@ -224,10 +229,14 @@ function printCart() {
         btn.setAttribute('id', item.id)
         btn.innerHTML += '-'
         btn.addEventListener("click", function(){
-            removeFromCart(item.id)
+        removeFromCart(item.id)
         });
     });
     
+    if (total == 0)
+    document.getElementById('total').innerHTML = 'Nothing here...'
+    else
+    document.getElementById('total').innerHTML = 'Total: ' + total
 }
 
 

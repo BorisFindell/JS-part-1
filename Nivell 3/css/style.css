@@ -1271,6 +1271,13 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
   border-bottom: 1px solid #dedede;
 }
 
+.total {
+  height: fit-content;
+  text-align: center;
+  padding: 15px;
+  border: solid 2px black;
+}
+
 .product-shorting {
   margin-bottom: 30px;
 }
